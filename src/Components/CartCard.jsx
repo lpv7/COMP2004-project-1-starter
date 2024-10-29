@@ -16,6 +16,7 @@ export default function CartCard({ image, productName, price, quantity }) {
       <p>
         <b>Total: {(quantity * price).toFixed(2)}</b>
       </p>
+      <button>Remove</button>
     </div>
   );
 }

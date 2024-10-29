@@ -18,6 +18,9 @@ export default function ProductCard({
   productCount,
   handleReduceCount,
   handleAddCount,
+  handleAddToCart,
+  listing,
+  qty,
 }) {
   //whole thing freaked out when I added angle brackets around products in parameter list. Needs to be there, not in brackets
   return (
@@ -33,7 +36,9 @@ export default function ProductCard({
         mode="product"
       />
       <p>{price}</p>
-      <button>Add to Cart</button>
+      <button onClick={() => handleAddToCart(listing, productCount)}>
+        Add to Cart
+      </button>
     </div>
   );
 }

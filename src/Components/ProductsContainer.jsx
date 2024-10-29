@@ -7,6 +7,7 @@ export default function ProductsContainer({
   productCount,
   handleReduceCount,
   handleAddCount,
+  handleAddToCart,
 }) {
   return (
     <div className="ProductsContainer">
@@ -17,6 +18,9 @@ export default function ProductsContainer({
           productCount={productCount.find((p) => p.id === product.id).count}
           handleReduceCount={handleReduceCount}
           handleAddCount={handleAddCount}
+          handleAddToCart={handleAddToCart}
+          listing={product}
+          // qty={productCount}
         />
       ))}
     </div>

@@ -28,7 +28,7 @@ export default function QuantityCounter({
         //   setQuantityCount((prevQuantity) => {
         //     return { ...prevQuantity, quantity: prevQuantity.quantity + 1 };
         //   })
-        onClick={() => handleAddCount(id)}
+        onClick={() => handleAddCount(id, mode)}
       >
         +
       </button>

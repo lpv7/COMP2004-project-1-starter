@@ -7,22 +7,56 @@
 
 import CartCard from "./CartCard";
 
-export default function CartContainer({ products, cartIsEmpty }) {
+export default function CartContainer({
+  products,
+  cartList,
+  handleAddCount,
+  handleReduceCount,
+  handleEmptyCart,
+}) {
   return (
-    //can we have multiple return statements? Ternary seems to want to come before return
-    <div className="CartContainer">
-      cartIsEmpty ?{/* If cart is empty: */}
-      <h1>
-        <b>Cart Items: 0</b>
-      </h1>
-      <h2>No items in cart</h2>
-      {/* :If cart has stuff:
-      <h1>
-        <b>Cart Items: {Array.length}</b>
-      </h1>
-      {products.map((product) => (
-        <CartCard key={product.id} {...product} />
-      ))} */}
+    <div>
+      {cartList.length !== 0 ? (
+        <>
+          <h2>
+            <b>Cart Items: {cartList.length}</b>
+          </h2>
+          {products.map((product) => (
+            <CartCard
+              key={product.id}
+              {...product}
+              handleReduceCount={handleReduceCount}
+              handleAddCount={handleAddCount}
+            />
+          ))}
+          <button onClick={() => handleEmptyCart}>Empty Cart</button>
+          <button>Checkout: total</button>
+        </>
+      ) : (
+        <>
+          <h1>
+            <b>Cart Items: 0</b>
+          </h1>
+          <h2>No items in cart</h2>
+        </>
+      )}
     </div>
   );
 }
+
+//   {return(
+//     <div>
+//     <h1>
+//       <b>Cart Items: {Array.length}</b>
+//     </h1>
+//     products.map((product) => (
+//       <CartCard key={product.id} {...product} />
+//     ))}
+//   </div>
+// )}
+// :return(//can we have multiple return statements? Ternary seems to want to come before return
+//   <div className="CartContainer">
+//     <h1>
+//       <b>Cart Items: 0</b>
+//     </h1>
+//     <h2>No items in cart</h2>) ))
