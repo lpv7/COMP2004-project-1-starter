@@ -13,7 +13,7 @@ export default function GroceriesAppContainer({ products }) {
     products.map((prod) => ({ id: prod.id, count: 0 }))
   );
 
-  const [cartList, setCartList] = useState([]); //cartItems = cartList; setCartItems = setCartList; cartItem = cartListing; Item = Listing
+  const [cartList, setCartList] = useState([]);
 
   //handlers
 
@@ -22,7 +22,7 @@ export default function GroceriesAppContainer({ products }) {
   //adds new quantity to it. If not, adds item to cart (array) with desired quantity
   const handleAddToCart = (listing, qty) => {
     if (qty >= 1) {
-      const updatedCartList = cartList.some(
+      const updatedCartList = cartList.find(
         (cartListing) => cartListing.id === listing.id
       )
         ? cartList.map((cartListing) =>
@@ -115,6 +115,7 @@ export default function GroceriesAppContainer({ products }) {
       <div className="GroceriesApp-Container">
         <ProductsContainer
           products={products}
+          cartList={cartList}
           productCount={productCount}
           handleReduceCount={handleReduceCount}
           handleAddCount={handleAddCount}

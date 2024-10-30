@@ -20,7 +20,7 @@ export default function ProductsContainer({
           handleAddCount={handleAddCount}
           handleAddToCart={handleAddToCart}
           listing={product}
-          // qty={productCount}
+          qty={productCount}
         />
       ))}
     </div>
