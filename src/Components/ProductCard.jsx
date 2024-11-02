@@ -7,9 +7,20 @@
 // the Coca-Cola CartCard. If the user tries to add a product with zero items, an alert should be
 // displayed, asking the user to add a quantity before adding it to the cart.
 
+//imports; ProductCard and Cart Card both use QuantityCounter. Also ended up adding 2
+//states in this component. Will fix this later on.
+
 import QuantityCounter from "./QuantityCounter";
 
 import { useState } from "react";
+
+//ProductCard: as describved, renders a card for each store item. The
+//Add To Cart proved to be very tricky, and in my current delerium, I went
+//with the option of using an additional state to prevent the items added
+//to the cart from being directly tied to their values in the store (
+//previously, increasing a quantity in the cart would instantly
+//and automatically increase its quantity in the store to match and vice-
+//versa). Again, something I'll need to fix later on.
 
 export default function ProductCard({
   productName,
@@ -18,6 +29,7 @@ export default function ProductCard({
   price,
   id,
   handleAddToCart,
+  cartList,
   listing,
 }) {
   const [localCount, setLocalCount] = useState(0);
@@ -51,215 +63,3 @@ export default function ProductCard({
     </div>
   );
 }
-
-// export default function ProductCard({
-//   productName,
-//   image,
-//   brand,
-//   price,
-//   id,
-//   productCount,
-//   handleReduceCount,
-//   handleAddCount,
-//   handleAddToCart,
-//   listing,
-// }) {
-//   const productData = productCount.find((p) => p.id === id);
-//   const count = productData ? productData.count : 0;
-
-//   return (
-//     <div>
-//       <h2>{productName}</h2>
-//       <img src={image} alt={productName} />
-//       <h3>{brand}</h3>
-//       <QuantityCounter
-//         productCount={count}
-//         handleReduceCount={handleReduceCount}
-//         handleAddCount={handleAddCount}
-//         id={id}
-//         mode="product"
-//       />
-//       <p>{price}</p>
-//       <button onClick={() => handleAddToCart(listing, count)}>
-//         Add to Cart
-//       </button>
-//     </div>
-//   );
-// }
-
-// export default function ProductCard({
-//   productName,
-//   image,
-//   brand,
-//   price,
-//   id,
-//   productCount,
-//   handleReduceCount,
-//   handleAddCount,
-//   handleAddToCart,
-//   listing,
-// }) {
-//   // Safely extract the count for the product. Use optional chaining to avoid errors if the product is not found.
-//   const count = productCount.find((p) => p.id === id)?.count || 0;
-
-//   return (
-//     <div>
-//       <h2>{productName}</h2>
-//       <img src={image} alt={productName} />
-//       <h3>{brand}</h3>
-//       <QuantityCounter
-//         productCount={count}
-//         handleReduceCount={handleReduceCount}
-//         handleAddCount={handleAddCount}
-//         id={id}
-//         mode="product"
-//       />
-//       <p>{price}</p>
-//       <button onClick={() => handleAddToCart(listing, count)}>
-//         Add to Cart
-//       </button>
-//     </div>
-//   );
-// }
-
-// export default function ProductCard({
-//   productName,
-//   image,
-//   brand,
-//   price,
-//   id,
-//   productCount,
-//   handleReduceCount,
-//   handleAddCount,
-//   handleAddToCart,
-//   listing,
-// }) {
-//   const productData = productCount.find((p) => p.id === id);
-//   const count = productData ? productData.count : 0;
-
-//   return (
-//     <div>
-//       <h2>{productName}</h2>
-//       <img src={image} alt={productName} />
-//       <h3>{brand}</h3>
-//       <QuantityCounter
-//         productCount={count}
-//         handleReduceCount={handleReduceCount}
-//         handleAddCount={handleAddCount}
-//         id={id}
-//         mode="product"
-//       />
-//       <p>{price}</p>
-//       <button onClick={() => handleAddToCart(listing, count)}>
-//         Add to Cart
-//       </button>
-//     </div>
-//   );
-// }
-
-// export default function ProductCard({
-//   productName,
-//   image,
-//   brand,
-//   price,
-//   id,
-//   productCount,
-//   handleReduceCount,
-//   handleAddCount,
-//   handleAddToCart,
-//   listing,
-// }) {
-//   // Extract the count for the product. Ensure productCount is an array.
-//   const count = productCount.find((p) => p.id === id)?.count || 0;
-
-//   return (
-//     <div>
-//       <h2>{productName}</h2>
-//       <img src={image} alt={productName} />
-//       <h3>{brand}</h3>
-//       <QuantityCounter
-//         productCount={count}
-//         handleReduceCount={handleReduceCount}
-//         handleAddCount={handleAddCount}
-//         id={id}
-//         mode="product"
-//       />
-//       <p>{price}</p>
-//       <button onClick={() => handleAddToCart(listing, count)}>
-//         Add to Cart
-//       </button>
-//     </div>
-//   );
-// }
-
-// export default function ProductCard({
-//   productName,
-//   image,
-//   brand,
-//   price,
-//   id,
-//   productCount,
-//   handleReduceCount,
-//   handleAddCount,
-//   handleAddToCart,
-//   listing,
-// }) {
-//   const count = productCount.find((p) => p.id === id).count; // Extract count for the product
-//   return (
-//     <div>
-//       <h2>{productName}</h2>
-//       <img src={image} alt={productName} />
-//       <h3>{brand}</h3>
-//       <QuantityCounter
-//         productCount={count}
-//         handleReduceCount={handleReduceCount}
-//         handleAddCount={handleAddCount}
-//         id={id}
-//         mode="product"
-//       />
-//       <p>{price}</p>
-//       <button onClick={() => handleAddToCart(listing, count)}>
-//         Add to Cart
-//       </button>
-//     </div>
-//   );
-// }
-
-// export default function ProductCard({
-//   productName,
-//   image,
-//   brand,
-//   price,
-//   id,
-//   productCount,
-//   handleReduceCount,
-//   handleAddCount,
-//   handleAddToCart,
-//   listing,
-//   qty,
-// }) {
-//   //whole thing freaked out when I added angle brackets around products in parameter list. Needs to be there, not in brackets
-//   return (
-//     <div>
-//       <h2>{productName}</h2>
-//       <img src={image} alt={productName} />
-//       <h3>{brand}</h3>
-//       <QuantityCounter
-//         productCount={productCount}
-//         cartList={productCount}
-//         handleReduceCount={handleReduceCount}
-//         handleAddCount={handleAddCount}
-//         id={id}
-//         mode="product"
-//       />
-//       <p>{price}</p>
-//       <button
-//         onClick={() =>
-//           handleAddToCart(listing, productCount.find((p) => p.id === id).count)
-//         }
-//       >
-//         Add to Cart
-//       </button>
-//     </div>
-//   );
-// }

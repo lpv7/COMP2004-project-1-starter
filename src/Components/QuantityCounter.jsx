@@ -3,6 +3,10 @@
 // Note: Products cannot be less than zero in the ProductCard and cannot be less than 1 in the
 // CardCard. Please reuse the same component for both ProductCard and CartCard components.
 
+//QuantityCounter: Here we all, at the end of all things...anywhoo! One feature that I like is
+//that you could show a n00b the bottom components and fool them into thinking that react is
+//simple and fun to use! Thanks again Z for telling me about mode!
+
 export default function QuantityCounter({
   handleReduceCount,
   handleAddCount,
@@ -25,38 +29,3 @@ export default function QuantityCounter({
     </div>
   );
 }
-
-// export default function QuantityCounter({
-//   handleReduceCount,
-//   handleAddCount,
-//   productCount,
-//   id,
-//   mode,
-//   cartList,
-//   key,
-// }) {
-//   return (
-//     <div>
-//       <button
-//         className="quantityBtn" //CSS styling from App.css
-//         onClick={() => handleReduceCount(id, mode)}
-//       >
-//         -
-//       </button>
-//       {/* set initial value at 0 if it is not greater than 0; this should catch NaN, "", etc. as well. */}
-//       {/* <p>{productCount.count >= 0 ? productCount.count : 0}</p> */}
-//       <p>{productCount}</p>
-
-//       <button
-//         className="quantityBtn" //from App.css
-//         // onClick={() =>
-//         //   setQuantityCount((prevQuantity) => {
-//         //     return { ...prevQuantity, quantity: prevQuantity.quantity + 1 };
-//         //   })
-//         onClick={() => handleAddCount(id, mode)}
-//       >
-//         +
-//       </button>
-//     </div>
-//   );
-// }
