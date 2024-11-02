@@ -15,14 +15,37 @@ export default function ProductsContainer({
         <ProductCard
           key={product.id}
           {...product}
-          productCount={productCount.find((p) => p.id === product.id).count}
+          productCount={productCount}
           handleReduceCount={handleReduceCount}
           handleAddCount={handleAddCount}
           handleAddToCart={handleAddToCart}
           listing={product}
-          qty={productCount}
         />
       ))}
     </div>
   );
 }
+
+// export default function ProductsContainer({
+//   products,
+//   productCount,
+//   handleReduceCount,
+//   handleAddCount,
+//   handleAddToCart,
+// }) {
+//   return (
+//     <div className="ProductsContainer">
+//       {products.map((product) => (
+//         <ProductCard
+//           key={product.id}
+//           {...product}
+//           productCount={productCount.find((p) => p.id === product.id).count}
+//           handleReduceCount={handleReduceCount}
+//           handleAddCount={handleAddCount}
+//           handleAddToCart={handleAddToCart}
+//           listing={product}
+//         />
+//       ))}
+//     </div>
+//   );
+// }
