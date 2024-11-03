@@ -32,7 +32,7 @@ export default function CartCard({
         mode="cart"
       />
       <p>
-        <b>Total: {(qty * parseFloat(price.replace("$", ""))).toFixed(2)}</b>
+        <b>Total: ${(qty * parseFloat(price.replace("$", ""))).toFixed(2)}</b>
       </p>
       <button onClick={() => handleRemoveFromCart(id)}>Remove</button>
     </div>
